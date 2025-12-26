@@ -1,0 +1,14 @@
+sources:        
+  - name : stripe
+    description: Provides the sources for stripe payment data 
+    database: raw
+    schema: stripe
+    tables:
+      - name : payment
+        description: Main Table that store payment data
+        config:
+          freshness:
+            loaded_at_field: _BATCHED_AT
+            warn_after: { count : 5 ,period : day }
+            error_after: { count : 10 , period : day }
+        
