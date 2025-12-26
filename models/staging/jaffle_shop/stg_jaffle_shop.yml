@@ -16,15 +16,14 @@ models:
           - not_null
           - unique
       - name: status
-        description: "{{ docs('order_status') }}"
         data_tests:
           - accepted_values:
               values:
-                - completed
-                - returned
-                #- return_pending
                 - placed
+                - returned
+                - return_pending
                 - shipped
+                - completed    
       - name: customer_id
         data_tests:
           - relationships:
